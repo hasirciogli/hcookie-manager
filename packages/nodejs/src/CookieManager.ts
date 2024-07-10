@@ -17,10 +17,13 @@ export class CookieManager {
    * @param {String} cookies
    */
   processCookies(cookies: string) {
+    // Cookies: cookie1=value1; Path=/; HttpOnly, cookie2=value2; Path=/; Secur, encode and decode
     if (cookies) {
-      cookies.split(";").forEach((cookie) => {
-        const [name, value] = cookie.split("=");
-        this.cookies[name.trim()] = value.trim();
+      cookies.split(",").forEach((cookie) => {
+        const parts = cookie.split("=");
+        this.cookies[decodeURIComponent(parts[0].trim())] = decodeURIComponent(
+          parts[1].trim()
+        );
       });
     }
   }
@@ -31,7 +34,12 @@ export class CookieManager {
    */
   readyCookies() {
     return Object.keys(this.cookies)
-      .map((name) => `${name}=${this.cookies[name]}`)
+      .map(
+        (name) =>
+          `${encodeURIComponent(name)}=${encodeURIComponent(
+            this.cookies[name]
+          )}`
+      )
       .join(";");
   }
 
@@ -41,7 +49,7 @@ export class CookieManager {
    * @param {string} value
    */
   setCookie(name: string, value: string) {
-    this.cookies[name] = value;
+    this.cookies[encodeURIComponent(name)] = encodeURIComponent(value);
   }
 
   /**
@@ -50,6 +58,6 @@ export class CookieManager {
    * @returns string
    */
   getCookie(name: string) {
-    return this.cookies[name];
+    return this.cookies[decodeURIComponent(name)];
   }
 }

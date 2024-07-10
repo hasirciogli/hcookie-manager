@@ -4,8 +4,7 @@
     "module": "commonjs",
     "target": "es6",
     "declaration": true,
-    "strict": true,
-    "types": ["CookieManager"]
+    "strict": true
   },
   "include": ["src/**/*.ts"]
 }
