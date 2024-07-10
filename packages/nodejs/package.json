@@ -1,0 +1,16 @@
+{
+  "name": "hcookie-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/CookieManager.js",
+  "types": "dist/CookieManager.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "author": "hasirciogli",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.5.3"
+  }
+}
