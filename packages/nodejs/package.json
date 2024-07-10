@@ -1,6 +1,6 @@
 {
   "name": "hcookie-manager",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/CookieManager.js",
   "types": "dist/CookieManager.d.ts",
