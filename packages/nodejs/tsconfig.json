@@ -5,7 +5,6 @@
     "target": "es6",
     "declaration": true,
     "strict": true,
-    "types": ["CookieManager"]
   },
   "include": ["src/**/*.ts"]
 }
